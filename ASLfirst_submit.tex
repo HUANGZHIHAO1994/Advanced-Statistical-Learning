@@ -217,8 +217,48 @@ the $ \frac{1}{n_k-1}S_k $ is the covariance matrix of the $k_{th}$ class, so th
 
 
 \subsection{3 Problem 3}
+First solve the first principle component $ y_1=\alpha_1^T\mathbf{x} $, as $ var(y_1)=\alpha_1^T \Sigma \alpha_1 $, that is to solve the optimization problem as follow,
 
+\begin{alignat*}{2}
+	\max_{\alpha_1} \quad & \alpha_1^T \Sigma \alpha_1 \\
+	\mbox{s.t.}\quad
+	&\alpha_1^T\alpha_1 = 1 
+\end{alignat*}
 
+To solve the optimization problem, a Lagrange function should be defined as follow
+\[ \mathcal{L}(\alpha_1, \lambda)= \alpha_1^T \Sigma \alpha_1 - \lambda(\alpha_1^T\alpha_1 - 1 ) \]
+
+\[ \mathcal{L}'_{\alpha_1}= \Sigma \alpha_1 - \lambda \alpha_1=0 \]
+so that $\lambda$ is the eigenvalue of $\Sigma$, and $\alpha_1$ is the corresponding eigenvector. The objective function becomes
+\[ \alpha_1^T \Sigma \alpha_1=\alpha_1^T \lambda \alpha_1=\lambda \alpha_1^T  \alpha_1=\lambda \]
+If we want to maximize the objective function, we should let $\lambda$ to be the max of all eigenvalues of $\Sigma$ , which is $\lambda_1$
+\[ var(y_1)=\alpha_1^T \Sigma \alpha_1=\lambda_1 \]
+
+Second, solve the second principle component 
+
+\begin{alignat*}{2}
+	\max_{\alpha_2} \quad & \alpha_2^T \Sigma \alpha_2 \\
+	\mbox{s.t.}\quad
+	&\alpha_2^T\Sigma\alpha_2 = 1 \\
+	&\alpha_1^T\Sigma\alpha_2 = 0,  \alpha_2^T\Sigma\alpha_1 = 0
+\end{alignat*}
+
+note that $ \alpha_1^T\Sigma\alpha_2 = \alpha_2^T\Sigma\alpha_1 =\alpha_2^T\lambda_1\alpha_1=0 $ \\
+so that 
+\[ \alpha_2^T\alpha_1=\alpha_1^T\alpha_2=0 \]
+we have the Lagrange function as 
+\[ \mathcal{L}(\alpha_2, \lambda, \mu)= \alpha_2^T \Sigma \alpha_2 - \lambda(\alpha_2^T\alpha_2 - 1 ) - \mu(\alpha_2^T\alpha_1) \]
+
+\[ \mathcal{L}'_{\alpha_2}= 2\Sigma \alpha_2 - 2\lambda \alpha_2 - \mu\alpha_1=0 \]
+let $\alpha_1^T$ left multiply the above formula, we have
+\[ 2\alpha_1^T \Sigma \alpha_2 - 2\lambda\alpha_1^T \alpha_2 - \mu\alpha_1^T\alpha_1=0 \]
+so that $\mu=0$,and we have
+\[ \Sigma\alpha_2-\lambda\alpha_2=0 \]
+so that we know $\lambda_2$ is the second largest eigenvalue, and 
+\[ var(y_2)=\alpha_2^T \Sigma \alpha_2=\lambda_2 \]
+Then use Recursion method, we have
+\[ var(y_k)=\alpha_k^T \Sigma \alpha_k=\lambda_k \]
+where $ \lambda_k $ is the $k_{th}$ largest eigenvalue.
 
 \subsection{4 Problem 4}
 \[ p(\beta|x)=\frac{p(x|\beta)p(\beta)}{p(x)} \propto p(x|\beta)p(\beta) \] 
