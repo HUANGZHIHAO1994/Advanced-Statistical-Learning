@@ -1,0 +1,300 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage{amssymb}
+\usepackage{ctex}
+\usepackage{amsmath,ntheorem,lmodern,bm}
+\usepackage{amsfonts}
+\usepackage{geometry}
+\usepackage{longtable}
+\usepackage{xcolor}
+\usepackage{framed}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{mathrsfs}
+\usepackage{color,framed}
+%\usepackage{hyperref}
+%\setCJKmainfont[BoldFont={FZHei-B01}]{FZShuSong-Z01}
+%\setCJKfamilyfont{song}{FZShuSong-Z01}
+%\setCJKfamilyfont{hei}{FZShuSong-Z01}
+%\setCJKfamilyfont{heiti}{FZShuSong-Z01}
+%\setCJKfamilyfont{heilight}{FZShuSong-Z01}
+%\setCJKfamilyfont{title}{FZShuSong-Z01}
+%\setCJKfamilyfont{songbold}{FZShuSong-Z01}
+%\hypersetup{pdfpagemode=FullScreen}
+\colorlet{shadecolor}{gray!10}
+\geometry{a4paper,left=1.5cm,right=1.5cm,top=1.5cm,bottom=1.5cm}
+\usepackage{ifxetex,ifluatex}
+\ifxetex
+  \usepackage{fontspec,xltxtra,xunicode}
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\else
+  \ifluatex
+    \usepackage{fontspec}
+    \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+    \newcommand{\euro}{€}
+  \else
+    \usepackage[utf8]{inputenc}
+    \usepackage{eurosym}
+  \fi
+\fi
+\usepackage{color}
+\usepackage{fancyvrb}
+%\DefineShortVerb[commandchars=\\\{\}]{\|}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{\begin{shaded}
+}{\end{shaded}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+\newcommand{\RegionMarkerTok}[1]{{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+\newcommand{\NormalTok}[1]{{#1}}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex,
+              colorlinks=true,
+              linkcolor=blue]{hyperref}
+\else
+  \usepackage[unicode=true,
+              colorlinks=true,
+              linkcolor=blue]{hyperref}
+\fi
+\hypersetup{breaklinks=true, pdfborder={0 0 0}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+
+%\EndDefineVerbatimEnvironment{Highlighting}
+\newcommand{\code}[1]{\ \tcbox[on line,
+arc=3pt,outer arc=3pt,colback=pink!30,
+boxsep=0pt,left=3pt,right=3pt,top=3pt,bottom=3pt,
+boxrule=0pt]{\ttfamily\color{purple}{#1}}\ }
+
+%\title{概率论第一次作业}
+%\date{\today}
+
+\begin{document}
+
+
+%\section{\LaTeX 直播之七  - 数学公式入门基础配套资料}\label{latex-ux516cux5f0f}
+
+%\section{\centerline {概率论第一次作业}}
+%\section{\centerline{概率论第一次作业}}
+%\section{概率论第一次作业}
+{\centering\section*{Homework I: DATA620013}}
+{\centering\section*{Advanced Statistical Learning}}
+%\subsection{版本号: V1.6.6}\label{ux7248ux672cux53f7-v1.6.6}
+%
+%\textbf{编者} \\
+%\subsection
+\begin{flushright}
+	\Large {\text{黄之豪}} \\
+	\Large {\text{20110980005}} \\
+	\Large {\text{Oct 25th, 2020}} \\
+\end{flushright}
+
+
+%\textbf{编者} \\
+%中山大学\ 易鹏\ \\
+%华南理工大学\ 关舒文
+\subsection{1 Problem 1}
+Assume that X is not random, $y=X\beta + \varepsilon$\\
+$$ E(d^Ty)=E(d^T(X\beta+\epsilon))=d^TX\beta $$ 
+As is given unbiased, $Ed^Ty=Ec^Ty=c^T\beta$, so we have $d^TX=c^T$
+
+$$
+\begin{aligned}
+\operatorname{Var}\left(d^{T} y\right) &=\operatorname{Var}\left(c^{T} \hat{\beta}+\left(d^{T} y-c^{T} \hat{\beta}\right)\right) \\
+&=\operatorname{Var}\left(c^{T} \hat{\beta}\right)+\operatorname{Var}\left(d^{T} y-c^{T} \hat{\beta}\right)+2 \operatorname{Cov}\left(c^{T} \hat{\beta}, d^{T} y-c^{T} \hat{\beta}\right)
+\end{aligned}
+$$
+
+Now, we want to show that $\operatorname{Cov}\left(c^{T} \hat{\beta}, d^{T} y-c^{T} \hat{\beta}\right)=0$
+
+$$
+\begin{aligned}
+\operatorname{Cov}\left(c^{T} \hat{\beta}, d^{T} y-c^{T} \hat{\beta}\right) &=\operatorname{Cov}\left(c^{T}\left(X^{T} X\right)^{-1} X^{T} y, d^{T} y-c^{T}\left(X^{T} X\right)^{-1} X^{T} y\right) \\
+&=\operatorname{Cov}\left(d^{T} X\left(X^{T} X\right)^{-1} X^{T} y, d^{T} y-d^{T} X\left(X^{T} X\right)^{-1} X^{T} y\right) \\
+&=d^{T} X\left(X^{T} X\right)^{-1} X^{T} \operatorname{Cov}(y, y)\left[d^{T}\left(I-X\left(X^{T} X\right)^{-1} X^{T}\right)\right]^{T} \\
+&=  d^{T} X\left(X^{T} X\right)^{-1} X^{T} I \left(I-X\left(X^{T} X\right)^{-1} X^{T}\right)^{T} d \\
+&=  d^{T} (X\left(X^{T} X\right)^{-1} X^{T}-X\left(X^{T} X\right)^{-1} X^{T}) d \\
+&=0
+\end{aligned}
+$$
+which use $Var(y) = Var(X\beta+\varepsilon)=E(X\beta+\varepsilon-X\beta)(X\beta+\varepsilon-X\beta)^T=I$ and
+$ Cov(Ay, Ay)=ACov(y,y)A^T $ \\
+so that, \ $Var(d^Ty) \leq Var(c^T\hat{\beta})$, where the equal sign works when and only when $ \operatorname{Var}\left(d^{T} y-c^{T} \hat{\beta}\right)=0 $, which means $ d^{T} y = l^{T} y $ almost everywhere. From the condition of problem 1, $ d \neq l $, so 
+
+$$ Var(d^Ty) > Var(l^Ty)  $$
+
+
+
+
+\subsection{2 Problem 2}
+$$\theta=\{\mu_{k},\Sigma \} ,\quad   k=1, \cdots, K $$
+$$p_{k}(x_{i};\theta)=Pr(G=k|X=x_{i};\theta)=\frac{f(x|G=k)Pr(G=k)}{Pr(X=x)}\propto f(x|G=k)Pr(G=k) $$
+the likelihood of the data is
+$$ \mathcal{L}(\theta;x)=\prod_{i=1}^N p_{k}(x_{i};\theta)=\prod_{i=1}^N \frac{f(x|G=k)Pr(G=k)}{Pr(X=x)} $$
+the log likelihood of the data is
+$$ log(\mathcal{L}(\theta;x))=\sum_{i=1}^{N}log(p_{k_{i}}(x_i;\theta))\propto \sum_{i=1}^{N}log(f_{k_{i}}(x_i)\pi_{k_i})=\sum_{i=1}^{N}log(f_{k_{i}}(x_i))+log\pi_{k_i} $$
+where  $x_i$ means the $i_{th}$ sample, $k_i$ means the class of the $i_{th}$ sample and
+$$ f_{k}(x)=\frac{1}{(2\pi)^\frac{P}{2}{|\Sigma|}^\frac{1}{2}}e^{-\frac{1}{2}(x-\mu_{k})^T\Sigma^{-1}(x-\mu_{k})} $$
+(1) $\hat{\mu_{k}}$\\
+Suppose that the $k_{th}$ class has $n_k$ samples
+
+\[
+	\frac{\partial log(\mathcal{L}(\theta;x))}{\partial \mu_{k}} = \frac{\partial \sum_{i=1}^{N}log(f_{k_{i}}(x_i))}{\partial \mu_{k}}=\frac{\partial \sum_{j=1}^{n_k}log(f_{k}(x_j))}{\partial \mu_{k}}=\sum_{j=1}^{n_k}\frac{\frac{\partial f_{k}(x_j)}{\partial \mu_{k}}}{f_{k}(x_j)} 
+	\tag{1}
+\]
+
+$$ 
+	\frac{\partial f_{k}(x_j)}{\partial \mu_{k}} = f_k(x_j) (-\frac{1}{2}(\Sigma^{-1}+(\Sigma^{-1})^T)(\mu_{k}-x_j)) = f_k(x_j) (-\Sigma^{-1})(\mu_{k}-x_j)
+$$
+so that (1) equals
+
+\[ 
+\sum_{j=1}^{n_k}(-\Sigma^{-1})(\mu_{k}-x_j)
+\tag{2}
+\]
+
+let (2) equals to 0, we have
+\[ 
+\hat{\mu_{k}}=\frac{1}{n_{k}}\sum_{j=1}^{n_k}x_j
+\]
+
+
+(2) $\hat{\Sigma}$
+
+From the matrix derivative formula, we know $\mathrm{d}f=tr(\frac{\partial f^T}{\partial x} \mathrm{d} x) $ \  (*), and $d|X|=|X| \operatorname{tr}\left(X^{-1} d X\right)$ \  (**)
+
+\[ \mathop{\arg\max}_{\Sigma}log(\mathcal{L}(\theta;x)) = \mathop{\arg\max}_{\Sigma} \sum_{i=1}^{N}-\frac{1}{2}log|\Sigma|-\frac{1}{2}(x_i-\mu_{k_i})^T\Sigma^{-1}(x_i-\mu_{k_i})= \mathop{\arg\min}_{\Sigma} \sum_{i=1}^{N}log|\Sigma|+(x_i-\mu_{k_i})^T\Sigma^{-1}(x_i-\mu_{k_i}) \tag{3}\]
+
+the derivative of first item of (3) is
+\[ 
+\sum_{i=1}^{N}\mathrm{d}log|\Sigma|=\sum_{i=1}^{N}|\Sigma|^{-1}\mathrm{d}|\Sigma|\overset{\text{(**)}}{=}\sum_{i=1}^{N}tr(\Sigma^{-1}\mathrm{d}\Sigma)=tr(N*\Sigma^{-1}\mathrm{d}\Sigma)
+\tag{4}
+ \]
+As the assumption above, all K classes and $n_k$ samples about the $k_{th}$ class, the second item of (3) also equals
+\[ 
+\sum_{k=1}^{K}\sum_{j=1}^{n_k}(x_j-\mu_{k})^T\Sigma^{-1}(x_j-\mu_{k})
+\tag{5}
+\]
+
+ 
+the derivative of second item of (3) is
+
+
+\begin{align}
+	\sum_{k=1}^{K}\sum_{j=1}^{n_k}(x_j-\mu_{k})^T\mathrm{d}\Sigma^{-1}(x_j-\mu_{k}) 
+	& = -\sum_{k=1}^{K}\sum_{j=1}^{n_k}(x_j-\mu_{k})^T\Sigma^{-1}\mathrm{d}\Sigma\Sigma^{-1}(x_j-\mu_{k}) \notag \\
+	& = tr(-\sum_{k=1}^{K}\sum_{j=1}^{n_k}(x_j-\mu_{k})^T\Sigma^{-1}\mathrm{d}\Sigma\Sigma^{-1}(x_j-\mu_{k})) \notag \\
+	& = -\sum_{k=1}^{K}\sum_{j=1}^{n_k}tr((x_j-\mu_{k})^T\Sigma^{-1}\mathrm{d}\Sigma\Sigma^{-1}(x_j-\mu_{k}))	\notag \\
+	& = -\sum_{k=1}^{K}\sum_{j=1}^{n_k}tr(\Sigma^{-1}(x_j-\mu_{k})(x_j-\mu_{k})^T\Sigma^{-1}\mathrm{d}\Sigma)	\notag \\
+	& = -\sum_{k=1}^{K}tr(\Sigma^{-1}\sum_{j=1}^{n_k}(x_j-\mu_{k})(x_j-\mu_{k})^T\Sigma^{-1}\mathrm{d}\Sigma)	\tag{6}
+\end{align}
+
+let $S_k=\sum_{j=1}^{n_k}(x_j-\mu_{k})(x_j-\mu_{k})^T$, the (6) equals 
+\[ 
+-\sum_{k=1}^{K}tr(\Sigma^{-1}S_k\Sigma^{-1}\mathrm{d}\Sigma)
+\tag{7}
+ \]
+
+from (3), (4) and (7), we have
+\[ \mathrm{d}log(\mathcal{L})=tr(N*\Sigma^{-1}\mathrm{d}\Sigma-\Sigma^{-1}S_k\Sigma^{-1}\mathrm{d}\Sigma)=tr((N*\Sigma^{-1}-\Sigma^{-1}\sum_{k=1}^{K}S_k\Sigma^{-1})\mathrm{d}\Sigma) \]
+
+moreover, from (*), we have
+\[ \frac{\partial log(\mathcal{L}(\theta;x))}{\partial \Sigma}=N*\Sigma^{-1}-\Sigma^{-1}\sum_{k=1}^{K}S_k\Sigma^{-1}
+\tag{8} \]
+let (8) equals 0, we have
+\[ \hat{\Sigma}=\frac{1}{N}\sum_{k=1}^{K}S_k=\sum_{k=1}^{K}\frac{n_k-1}{N}(\frac{1}{n_k-1}S_k)  \]
+\[ S_k=\sum_{j=1}^{n_k}(x_j-\hat{\mu_{k}})(x_j-\hat{\mu_{k}})^T \]
+
+the $ \frac{1}{n_k-1}S_k $ is the covariance matrix of the $k_{th}$ class, so the weight of the pooled covariance estimate is $\frac{n_k-1}{N}$
+
+
+\subsection{3 Problem 3}
+First solve the first principle component $ y_1=\alpha_1^T\mathbf{x} $, as $ var(y_1)=\alpha_1^T \Sigma \alpha_1 $, that is to solve the optimization problem as follow,
+
+\begin{alignat*}{2}
+	\max_{\alpha_1} \quad & \alpha_1^T \Sigma \alpha_1 \\
+	\mbox{s.t.}\quad
+	&\alpha_1^T\alpha_1 = 1 
+\end{alignat*}
+
+To solve the optimization problem, a Lagrange function should be defined as follow
+\[ \mathcal{L}(\alpha_1, \lambda)= \alpha_1^T \Sigma \alpha_1 - \lambda(\alpha_1^T\alpha_1 - 1 ) \]
+
+\[ \mathcal{L}'_{\alpha_1}= \Sigma \alpha_1 - \lambda \alpha_1=0 \]
+so that $\lambda$ is the eigenvalue of $\Sigma$, and $\alpha_1$ is the corresponding eigenvector. The objective function becomes
+\[ \alpha_1^T \Sigma \alpha_1=\alpha_1^T \lambda \alpha_1=\lambda \alpha_1^T  \alpha_1=\lambda \]
+If we want to maximize the objective function, we should let $\lambda$ to be the max of all eigenvalues of $\Sigma$ , which is $\lambda_1$
+\[ var(y_1)=\alpha_1^T \Sigma \alpha_1=\lambda_1 \]
+
+Second, solve the second principle component 
+
+\begin{alignat*}{2}
+	\max_{\alpha_2} \quad & \alpha_2^T \Sigma \alpha_2 \\
+	\mbox{s.t.}\quad
+	&\alpha_2^T\Sigma\alpha_2 = 1 \\
+	&\alpha_1^T\Sigma\alpha_2 = 0,  \alpha_2^T\Sigma\alpha_1 = 0
+\end{alignat*}
+
+note that $ \alpha_1^T\Sigma\alpha_2 = \alpha_2^T\Sigma\alpha_1 =\alpha_2^T\lambda_1\alpha_1=0 $ \\
+so that 
+\[ \alpha_2^T\alpha_1=\alpha_1^T\alpha_2=0 \]
+we have the Lagrange function as 
+\[ \mathcal{L}(\alpha_2, \lambda, \mu)= \alpha_2^T \Sigma \alpha_2 - \lambda(\alpha_2^T\alpha_2 - 1 ) - \mu(\alpha_2^T\alpha_1) \]
+
+\[ \mathcal{L}'_{\alpha_2}= 2\Sigma \alpha_2 - 2\lambda \alpha_2 - \mu\alpha_1=0 \]
+let $\alpha_1^T$ left multiply the above formula, we have
+\[ 2\alpha_1^T \Sigma \alpha_2 - 2\lambda\alpha_1^T \alpha_2 - \mu\alpha_1^T\alpha_1=0 \]
+so that $\mu=0$,and we have
+\[ \Sigma\alpha_2-\lambda\alpha_2=0 \]
+so that we know $\lambda_2$ is the second largest eigenvalue, and 
+\[ var(y_2)=\alpha_2^T \Sigma \alpha_2=\lambda_2 \]
+Then use Recursion method, we have
+\[ var(y_k)=\alpha_k^T \Sigma \alpha_k=\lambda_k \]
+where $ \lambda_k $ is the $k_{th}$ largest eigenvalue.
+
+\subsection{4 Problem 4}
+\[ p(\beta|x)=\frac{p(x|\beta)p(\beta)}{p(x)} \propto p(x|\beta)p(\beta) \] 
+\[ \mathop{\arg\max}_{\beta}p(\beta|x)=\mathop{\arg\max}_{\beta} p(x|\beta)p(\beta) \] 
+let $\operatorname{Pr}(G=1 \mid X=x, \beta) = \pi(x)$, so $\operatorname{Pr}(G=0 \mid X=x, \beta) = 1- \pi(x)$
+
+$$ p(\beta)=\frac{1}{(2\pi)^\frac{P}{2}{|\alpha^2I|}^\frac{1}{2}}e^{-\frac{1}{2}\beta^T{(\alpha^2I)}^{-1}\beta} $$
+
+\begin{align}
+	\mathop{\arg\max}_{\beta} p(x|\beta)p(\beta)
+	& = \mathop{\arg\max}_{\beta} \prod_{i=1}^{n}p(x_i|\beta)p(\beta) \notag \\
+	& = \mathop{\arg\max}_{\beta} \prod_{i=1}^{n}{\pi(x_i)}^{y_i}[1-\pi(x_i)]^{(1-y_i)}p(\beta) \notag \\
+	& = \mathop{\arg\max}_{\beta}\sum_{i=1}^{n}y_i log\pi(x_i)+(1-y_i)log(1-\pi(x_i))+logp(\beta)	\notag \\
+	& = \mathop{\arg\max}_{\beta}\sum_{i=1}^{n}y_i log\pi(x_i)+(1-y_i)log(1-\pi(x_i))-\frac{1}{2\alpha^2}\beta^T\beta+logC_0	\notag \\
+	& = \mathop{\arg\max}_{\beta}\sum_{i=1}^{n}y_i log\pi(x_i)+(1-y_i)log(1-\pi(x_i))-\frac{1}{2\alpha^2}\beta^T\beta	\notag \\
+	& = \mathop{\arg\min}_{\beta}-\sum_{i=1}^{n}[y_i log\pi(x_i)+(1-y_i)log(1-\pi(x_i))-\frac{1}{2\alpha^2}\beta^T\beta]	\notag
+\end{align}
+
+so the loss function can be supposed to
+\begin{align}
+\mathcal{L}(\beta)
+& = \frac{n}{2\alpha^2}\beta^T\beta-\sum_{i=1}^{n}[y_i log\pi(x_i)+(1-y_i)log(1-\pi(x_i))] \notag \\
+& = \frac{n}{2\alpha^2}\beta^T\beta-\sum_{i=1}^{n}[y_i log\frac{\pi(x_i)}{1-\pi(x_i)}+log(1-\pi(x_i))]	\notag \\
+& = \frac{n}{2\alpha^2}\beta^T\beta -\sum_{i=1}^{n}[y_i (\beta^Tx_i)-log(1+e^{\beta^Tx_i})]	\notag 
+\end{align}
+
+
+
+
+\end{document} 
